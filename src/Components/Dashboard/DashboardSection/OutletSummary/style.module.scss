@@ -1,0 +1,30 @@
+@import "../../../../assets/scss/variables.scss";
+.tabularSummaryContainer {
+    margin-top: 30px;
+    .tabSection {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+        .tab {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            border-radius: 12px;
+            border: 1px solid $color-blue-2;
+            background-color: $color-white;
+            color: $color-blue-2;
+            padding: 5px 0;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 300;
+            DISPLAY: FLEX;
+            JUSTIFY-CONTENT: CENTER;
+            ALIGN-ITEMS: CENTER;
+            &.active {
+                background: $color-blue-2;
+                color: $color-white;
+            }
+        }
+    }
+}

@@ -1,0 +1,87 @@
+@import "../../assets/scss/variables.scss";
+.toggleButton {}
+
+.tableContainer {
+    overflow-x: auto;
+    border-radius: 8px;
+    max-height: 400px;
+    border: 1px solid rgb(216, 216, 216);
+    // min-width: 300px;
+    // height: 400px;
+    &::-webkit-scrollbar-track {
+        border-radius: 2px;
+        background-color: rgba(242, 153, 74, 0.30);
+        border: none;
+    }
+    &::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+        width: 5px;
+        height: 5px;
+        border-radius: 8px;
+        background-color: #F2994A;
+    }
+    table {
+        width: 100%;
+        table-layout: fixed;
+        white-space: nowrap;
+        thead {
+            th {
+                position: sticky;
+                top: 0;
+            }
+        }
+        tfoot {
+            td {
+                position: sticky;
+                bottom: 0;
+                &:first-child {
+                    background-color: $color-blue-light;
+                }
+                .active {
+                    background-color: #ffab63 !important;
+                }
+            }
+        }
+        th {
+            border-left: 2px solid $color-white;
+            &.active {
+                background-color: #F2994A;
+            }
+        }
+        td {
+            border-right: 2px solid rgba(104, 135, 175, 0.30);
+        }
+        th,
+        tfoot>tr>td {
+            text-align: center;
+            background-color: $color-blue-light;
+            color: $color-white !important;
+            &.active {
+                border-right: 3px solid #F2994A !important;
+                border-left: 3px solid #F2994A !important;
+                background-color: #F2994A !important;
+            }
+        }
+        th:first-child,
+        td:first-child {
+            position: sticky;
+            left: 0;
+            z-index: 2;
+            background-color: #fff;
+            overflow: hidden;
+        }
+        tfoot>tr:first-child {
+            background-color: $color-blue-light;
+        }
+        th:first-child {
+            z-index: 3;
+            background-color: $color-blue-light;
+        }
+        th:not(:first-child) {
+            z-index: 1;
+        }
+    }
+}

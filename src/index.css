@@ -1,0 +1,12 @@
+.leaflet-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+}
+
+.leaflet-div-icon {
+    height: 30px !important;
+    width: 30px !important;
+    border: none;
+    background: inherit;
+}

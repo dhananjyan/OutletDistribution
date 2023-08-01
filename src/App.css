@@ -1,0 +1,22 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+td {
+    overflow: hidden;
+}
+
+th {
+    text-transform: capitalize;
+}
+
+th.active,
+td.active {
+    border-right: 3px solid #ffab62 !important;
+    border-left: 3px solid #ffab63 !important;
+}
+
+thead>tr>th.active,
+tfoot>tr>td.active {
+    background-color: #ffab63 !important;
+}

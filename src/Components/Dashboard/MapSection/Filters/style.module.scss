@@ -1,0 +1,42 @@
+@import "../../../../assets/scss/variables.scss";
+
+.filterContainer {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    .filterItem {
+        flex: 1;
+
+        label {
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 500;
+            color: $color-blue-3;
+        }
+    }
+}
+
+.filterButton,
+.filterButton:hover,
+.filterButton:focus,
+.filterButton:active,
+.filterButton:focus-visible {
+    padding: 15px 40px;
+    border: 1px solid $color-blue-2 !important;
+    background: $color-blue-2 !important;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    align-self: flex-end;
+    border-radius: 12px;
+}
+
+.noOfCounts {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    color: $color-blue-2;
+}
