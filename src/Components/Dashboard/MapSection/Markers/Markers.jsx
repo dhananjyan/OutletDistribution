@@ -42,11 +42,10 @@ export default function Markers(props) {
     const map = useMap();
 
     useEffect(() => {
-        if (coordinates)
-            map.fitBounds([
-                coordinates,
-                coordinates,
-            ])
+        if (coordinates) {
+            let coordinates = markers.map(item => [item[2], item[3]])
+            map.fitBounds(coordinates)
+        }
     }, [coordinates])
 
 

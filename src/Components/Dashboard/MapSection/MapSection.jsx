@@ -49,14 +49,14 @@ export default function MapSection() {
                         {">10L"}
                     </div>
                 </div>
-                <MapContainer center={mapData?.coordinates} maxZoom={14} zoom={13} scrollWheelZoom={false}>
+                <MapContainer center={mapData?.coordinates} maxZoom={16} zoom={13} scrollWheelZoom={false}>
                     <TileLayer
-                        url="/images_tn/{z}/{x}/{y}.png"
+                        url={`https://outletdistribution.blob.core.windows.net/outletdistribution/map/${mapData?.state}/{z}/{x}/{y}.png?sp=racwdl&st=2023-08-01T09:55:52Z&se=2023-10-31T17:55:52Z&sv=2022-11-02&sr=c&sig=3hR664FSk8dIsvVSYUE5pGiFVdGr6yEtWSZfIZ1153w%3D`}
                     />
-                    <Markers
+                    {mapData?.result?.length ? <Markers
                         coordinates={mapData?.coordinates}
                         markers={mapData?.result}
-                    />
+                    /> : ""}
                 </MapContainer>
             </div>
         </div>

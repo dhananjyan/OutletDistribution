@@ -25,9 +25,10 @@ export default function SelectBox(props) {
             setIsOpen(v => {
                 if (v) {
                     onClose()
+                    setFilterValue(null)
                 } else {
                     setTimeout(() => {
-                        onOpen()
+                        onOpen();
                     }, 100);
                 }
                 return !v
@@ -80,6 +81,7 @@ export default function SelectBox(props) {
                     setIsOpen(false);
                     if (typeof onClose === "function") {
                         onClose();
+                        setFilterValue(null)
                     }
                 }
             }

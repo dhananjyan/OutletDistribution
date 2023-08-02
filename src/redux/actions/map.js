@@ -13,7 +13,7 @@ export function updateFilterValue(data) {
         if (data?.field == "state")
             dispatch(updateDistrictOptions(data?.value))
         if (data?.field == "district")
-            dispatch(updateVillageOptions({ village: data?.value, state: filters?.state }))
+            dispatch(updateVillageOptions({ district: data?.value, state: filters?.state }))
 
         dispatch(updateCurrentSelect(null));
     }
@@ -21,28 +21,26 @@ export function updateFilterValue(data) {
 
 
 
-export function updateVillageOptions({ state, village }) {
+export function updateVillageOptions({ state, district }) {
     return async (dispatch, getState) => {
         dispatch(updateFilters({
             field: "village",
             value: []
         }));
         dispatch(updateFilterOptions({ village: [] }));
-        console.log('fffffffffffffff', state, village)
-        return;
-        if (!state?.length) return;
+        if (!state?.length || !district?.length) return;
         const result = await client.post("/village", {
-            "state": "TAMILNADU",
-            "district": "Salem"
+            "state": state[0],
+            "district": district[0]
         });
         if (!result?.status)
             return toastr.error('Something went wrong, Please try again later')
 
-        let district = result?.data?.map(item => ({
-            label: item?.district_name,
-            value: item?.district_name
+        let village = result?.data?.map(item => ({
+            label: item?.village_name,
+            value: item?.village_name
         }))
-        dispatch(updateFilterOptions({ district }))
+        dispatch(updateFilterOptions({ village }))
     }
 }
 
@@ -54,7 +52,11 @@ export function updateDistrictOptions(state) {
             field: "district",
             value: []
         }));
-        dispatch(updateFilterOptions({ district: [] }))
+        dispatch(updateFilters({
+            field: "village",
+            value: []
+        }));
+        dispatch(updateFilterOptions({ district: [], village: [] }))
         if (!state?.length) return;
         const result = await client.post("/district", { state });
         if (!result?.status)
@@ -84,9 +86,11 @@ export function filterSubmit() {
                 "district": filters?.district?.[0] || "",
                 "village": filters?.village?.[0] || "",
             });
-        console.log("rrr", result)
         if (!result?.status)
             return toastr.error('Something went wrong, Please try again later')
+
+        if (!result?.data?.[0]?.result?.length)
+            return toastr.info("No record found")
         dispatch(updateMapData(result?.data))
     }
 }

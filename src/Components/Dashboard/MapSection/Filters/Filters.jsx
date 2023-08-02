@@ -45,7 +45,7 @@ export default function Filters(props) {
             </div>
             <div className={s.filterItem}>
                 <label>Village</label>
-                <SelectBox options={filterOptions?.village || []} name="village" onClose={() => handleClose()} onOpen={() => handleOpen("village")} defaultValue={[]} onChange={handleFilterChange} />
+                <SelectBox options={filterOptions?.village || []} name="village" value={filtersValue?.village} onClose={() => handleClose()} onOpen={() => handleOpen("village")} defaultValue={[]} onChange={handleFilterChange} />
             </div>
             <div className={cx("align-self-end")}>
                 <Button className={s.filterButton} onClick={handleSubmit}>Submit</Button>
