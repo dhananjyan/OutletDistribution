@@ -1,51 +1,19 @@
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
+import { useSelector } from 'react-redux';
+import { MapContainer, TileLayer } from 'react-leaflet';
 
-import s from "./style.module.scss";
 import cx from "classnames";
+import s from "./style.module.scss";
+
 import Filters from './Filters/Filters';
-
-import L, { Icon, } from 'leaflet';
-
-import distributorMarkerSvg from "../../../assets/distributorMarker.png";
-
-const iconPerson = new Icon({
-    iconUrl: distributorMarkerSvg,
-    // iconAnchor: distributorMarkerSvg,
-    // popupAnchor: null,
-    // iconSize: new L.Point(60, 75),
-    iconSize: [31, 46], // size of the icon
-    iconAnchor: [15.5, 42], // point of the icon which will correspond to marker's location
-    popupAnchor: [0, -45], // point from which the popup should open relative to the iconAnchor
-    shadowUrl: null,
-    shadowSize: null,
-    shadowAnchor: null,
-    className: 'leaflet-div-icon'
-});
-
-const markerList = [
-    {
-        position: [9.939093, 78.121719],
-        popupMessage: "This is the sample popup message - 1"
-    },
-    {
-        position: [9.938093, 78.129719],
-        popupMessage: "This is the sample popup message - 2"
-    },
-    {
-        position: [9.939193, 78.121219],
-        popupMessage: "This is the sample popup message - 3"
-    },
-    {
-        position: [9.839093, 78.121719],
-        popupMessage: "This is the sample popup message - 4"
-    },
-];
+import Markers from './Markers/Markers';
 
 export default function MapSection() {
 
+    const mapData = useSelector(state => state?.map?.mapData?.[0]);
+
     return (
         <div>
-            <Filters />
+            <Filters distributorCount={mapData?.dist_count} outletCount={mapData?.outlet_count} />
             <div className={cx(s.mapContainer)}>
                 <div className={s.infoBox}>
                     <div className={s.infoItem}>
@@ -81,17 +49,14 @@ export default function MapSection() {
                         {">10L"}
                     </div>
                 </div>
-                <MapContainer center={[9.939093, 78.121719]} maxZoom={15} zoom={13} scrollWheelZoom={false}>
+                <MapContainer center={mapData?.coordinates} maxZoom={14} zoom={13} scrollWheelZoom={false}>
                     <TileLayer
                         url="/images_tn/{z}/{x}/{y}.png"
                     />
-                    {markerList?.map((marker, i) => {
-                        return (<Marker key={`MARKER_ITEM_${i}_${marker?.position?.[0]}`} position={marker.position} icon={iconPerson}>
-                            <Popup>
-                                {marker.popupMessage}
-                            </Popup>
-                        </Marker>)
-                    })}
+                    <Markers
+                        coordinates={mapData?.coordinates}
+                        markers={mapData?.result}
+                    />
                 </MapContainer>
             </div>
         </div>

@@ -8,16 +8,15 @@ import SelectBox from "../../../SelectBox/SelectBox";
 import { updateCurrentSelect, updateFilters } from '../../../../redux/reducers/mapSlice';
 import { filterSubmit, updateFilterValue } from '../../../../redux/actions/map';
 
+import distributorMarker from "../../../../assets/distributorMarker.png";
+import outletMarker from "../../../../assets/outletMarker.png";
 
-export default function Filters() {
+export default function Filters(props) {
+    const { distributorCount, outletCount } = props;
     const dispatch = useDispatch();
     const filterOptions = useSelector(state => state?.map?.filterOptions);
     const filtersValue = useSelector(state => state?.map?.filters);
-    const currentSelect = useSelector(state => state?.map?.currentSelect);
-    console.log("filtersValue", filtersValue)
-    // console.log("filtersValuefiltersValuefiltersValue", filtersValue)
     async function handleFilterChange(data) {
-        // await dispatch(updateFilters());
         dispatch(updateFilterValue(data));
     }
 
@@ -26,19 +25,10 @@ export default function Filters() {
     }
 
     function handleOpen(key) {
-        // console.log('handle Open');
         dispatch(updateCurrentSelect({
             selecteField: key,
             initialValue: filtersValue?.[key]
         }))
-        // setCurrentData({
-        //     selecteField: key,
-        //     initialValue: filtersValue?.[key]
-        // })
-        // setCurrentSelect({
-        //     selecteField: key,
-        //     initialValue: filtersValue?.[key]
-        // })
     }
     function handleSubmit() {
         dispatch(filterSubmit())
@@ -50,13 +40,13 @@ export default function Filters() {
                 <SelectBox onClose={() => handleClose()} onOpen={() => handleOpen("state")} options={filterOptions?.state || []} name="state" value={filtersValue?.state} onChange={handleFilterChange} />
             </div>
             <div className={s.filterItem}>
-                <label>District</label> 
+                <label>District</label>
                 <SelectBox onClose={() => handleClose()} onOpen={() => handleOpen("district")} value={filtersValue?.district} options={filterOptions?.district || []} name="district" onChange={handleFilterChange} />
             </div>
-            {/*<div className={s.filterItem}>
+            <div className={s.filterItem}>
                 <label>Village</label>
-                <SelectBox options={options} name="name2" defaultValue={[]} onChange={handleFilterChange} />
-            </div> */}
+                <SelectBox options={filterOptions?.village || []} name="village" onClose={() => handleClose()} onOpen={() => handleOpen("village")} defaultValue={[]} onChange={handleFilterChange} />
+            </div>
             <div className={cx("align-self-end")}>
                 <Button className={s.filterButton} onClick={handleSubmit}>Submit</Button>
             </div>
@@ -65,23 +55,25 @@ export default function Filters() {
                     <tbody>
                         <tr>
                             <td style={{ width: 40 }}>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <img src={distributorMarker} />
+                                {/* <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                     <circle cx="12" cy="12" r="12" fill="#3771C3" fill-opacity="0.5" />
-                                </svg>
+                                </svg> */}
                             </td>
                             <td>No. of Distributors</td>
                             <td>:</td>
-                            <td style={{ width: 25, textAlign: "right" }}>0</td>
+                            <td style={{ width: 25, textAlign: "right" }}>{outletCount}</td>
                         </tr>
                         <tr>
                             <td>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <img src={outletMarker} />
+                                {/* <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                     <circle cx="12" cy="12" r="12" fill="#3771C3" fill-opacity="0.2" />
-                                </svg>
+                                </svg> */}
                             </td>
                             <td>No. of Outlets</td>
                             <td>:</td>
-                            <td style={{ width: 25, textAlign: "right" }}>0</td>
+                            <td style={{ width: 25, textAlign: "right" }}>{distributorCount}</td>
                         </tr>
                     </tbody>
                 </table>

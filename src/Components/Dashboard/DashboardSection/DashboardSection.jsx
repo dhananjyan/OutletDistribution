@@ -19,7 +19,6 @@ export default function DashboardSection() {
     const { counts, ssfa, rsc } = dashboard || {};
 
     useEffect(() => {
-      
         dispatch(applyFilter(true))
     }, [])
     
