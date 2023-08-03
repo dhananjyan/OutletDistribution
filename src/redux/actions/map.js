@@ -84,7 +84,10 @@ export function filterSubmit() {
             {
                 "state": filters?.state?.[0] || "",
                 "district": filters?.district?.[0] || "",
-                "village": filters?.village?.[0] || "",
+                "village": filters?.village?.[0] || "",                
+                // "state": "TAMILNADU",
+                // "district": "Madurai",
+                // "village": "Madurai",
             });
         if (!result?.status)
             return toastr.error('Something went wrong, Please try again later')

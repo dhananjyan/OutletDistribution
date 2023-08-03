@@ -62,7 +62,7 @@ export default function Filters(props) {
                             </td>
                             <td>No. of Distributors</td>
                             <td>:</td>
-                            <td style={{ width: 25, textAlign: "right" }}>{outletCount}</td>
+                            <td style={{ width: 25, textAlign: "right" }}>{distributorCount}</td>
                         </tr>
                         <tr>
                             <td>
@@ -73,7 +73,7 @@ export default function Filters(props) {
                             </td>
                             <td>No. of Outlets</td>
                             <td>:</td>
-                            <td style={{ width: 25, textAlign: "right" }}>{distributorCount}</td>
+                            <td style={{ width: 25, textAlign: "right" }}>{outletCount}</td>
                         </tr>
                     </tbody>
                 </table>

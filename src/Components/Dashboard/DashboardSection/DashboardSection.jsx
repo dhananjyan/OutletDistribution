@@ -110,7 +110,7 @@ export default function DashboardSection() {
                         <div className={s.billingCountDetails}><span className={s.orangeColor}>RSC Billing % : </span>RSC count of Outlets / SSFA count of Outlets</div>
                     </div>
                     <div>
-                        <Button className={s.downloadButton}>Download <ReactSVG src={downloadSvg} /></Button>
+                        {/* <Button className={s.downloadButton}>Download <ReactSVG src={downloadSvg} /></Button> */}
                     </div>
                 </div>
             </Loader>

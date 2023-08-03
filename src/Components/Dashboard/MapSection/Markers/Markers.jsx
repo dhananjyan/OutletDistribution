@@ -12,28 +12,27 @@ const distributorIcon = new Icon({
     iconUrl: distributorMarker,
     // iconAnchor: distributorMarker,
     // popupAnchor: null,
-    // iconSize: new L.Point(60, 75),
-    iconSize: [31, 46], // size of the icon
-    iconAnchor: [15.5, 42], // point of the icon which will correspond to marker's location
-    popupAnchor: [0, -45], // point from which the popup should open relative to the iconAnchor
-    shadowUrl: null,
-    shadowSize: null,
-    shadowAnchor: null,
-    className: 'leaflet-div-icon'
+    iconSize: new L.Point(15, 15),
+    // iconSize: [15, 15], // size of the icon
+    // iconAnchor: [15, 15], // point of the icon which will correspond to marker's location
+    // popupAnchor: [0, -45], // point from which the popup should open relative to the iconAnchor
+    // shadowUrl: null,
+    // shadowSize: null,
+    // shadowAnchor: null,
+    // className: 'leaflet-div-icon'
 });
 
 const outletIcon = new Icon({
     iconUrl: outletMarker,
     // iconAnchor: distributorMarker,
     // popupAnchor: null,
-    // iconSize: new L.Point(60, 75),
-    iconSize: [31, 46], // size of the icon
-    iconAnchor: [15.5, 42], // point of the icon which will correspond to marker's location
-    popupAnchor: [0, -45], // point from which the popup should open relative to the iconAnchor
-    shadowUrl: null,
-    shadowSize: null,
-    shadowAnchor: null,
-    className: 'leaflet-div-icon'
+    iconSize: new L.Point(15, 15),
+    // iconAnchor: [15.5, 42], // point of the icon which will correspond to marker's location
+    // popupAnchor: [0, -45], // point from which the popup should open relative to the iconAnchor
+    // shadowUrl: null,
+    // shadowSize: null,
+    // shadowAnchor: null,
+    // className: 'leaflet-div-icon'
 });
 
 export default function Markers(props) {

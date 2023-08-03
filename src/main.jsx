@@ -35,7 +35,7 @@ msalInstance.addEventCallback((event) => {
 });
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Provider store={store}>
       <div>
         <App instance={msalInstance} />
@@ -51,5 +51,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           closeOnToastrClick />
       </div>
     </Provider>
-  </React.StrictMode>,
+  // </React.StrictMode>,
 )
