@@ -71,7 +71,7 @@ export default function Header() {
                     </div>
                 </AuthenticatedTemplate>
                 <UnauthenticatedTemplate>
-                    <Button onClick={handleLoginRedirect} >Sign in</Button>
+                    {/* <Button onClick={handleLoginRedirect} >Sign in</Button> */}
                     {/* <div className="collapse navbar-collapse justify-content-end"> */}
                         {/* <DropdownButton variant="secondary" className="ml-auto" drop="start" title="Sign In">
                             <Dropdown.Item as="button" onClick={handleLoginPopup}>

@@ -33,6 +33,13 @@
                 top: 0;
             }
         }
+        tbody {
+            td {
+                :not(&:first-child) {
+                    text-align: center;
+                }
+            }
+        }
         tfoot {
             td {
                 position: sticky;

@@ -82,13 +82,13 @@ export function getFilterOptions() {
             ...item
         }));
 
-        let locationType = result?.data?.UrbanRural?.map(item => ({
+        let locationType = result?.data?.Market?.map(item => ({
             label: item,
             value: item,
             ...item
         }));
 
-        let population = result?.data?.population?.map(item => ({
+        let population = result?.data?.Population?.map(item => ({
             label: item,
             value: item,
             ...item
