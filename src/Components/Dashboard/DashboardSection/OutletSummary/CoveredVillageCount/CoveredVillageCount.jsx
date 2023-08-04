@@ -26,12 +26,12 @@ export default function CoveredVillageCount() {
                 </DotLoader>
             </div>
             <div className={s.item}>
-                <div className={cx("text-center", s.tableLabel)}>SSFA JC Wise Coverd Villages</div>
+                <div className={cx("text-center", s.tableLabel)}>SSFA JC Wise Covered Villages</div>
                 <Table data={tableData?.ssfaCoveredVillage} />
 
             </div>
             <div className={s.item}>
-                <div className={cx("text-center", s.tableLabel)}>RSC JC Wise Coverd Villages</div>
+                <div className={cx("text-center", s.tableLabel)}>RSC JC Wise Covered Villages</div>
                 <Table data={tableData?.rscCoveredVillage} />
 
             </div>
