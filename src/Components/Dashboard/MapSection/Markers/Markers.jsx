@@ -62,8 +62,6 @@ export default function Markers(props) {
                                 <div><span className={s.popupLabel}>SSNAME:</span> {marker[0]}</div>
                                 <div><span className={s.popupLabel}>Distributor  Name: </span>{marker[5]}</div>
                             </>}
-
-                            {marker[0]}
                         </Popup>
                     </Marker>)
             })}

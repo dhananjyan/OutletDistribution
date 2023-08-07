@@ -40,7 +40,6 @@ export async function client(
             message: data?.message,
         };
     } catch (err) {
-        console.log("error", err)
         return {
             status: false,
             data: err.data || null,
@@ -51,7 +50,6 @@ export async function client(
 }
 
 client.get = function (url, customConfig = {}) {
-    console.log('get')
     return client(url, { ...customConfig, method: "GET" });
 };
 

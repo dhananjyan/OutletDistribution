@@ -3,9 +3,148 @@ import { createSlice } from '@reduxjs/toolkit';
 export const dashboardSlice = createSlice({
     name: 'dashboard',
     initialState: {
-        filters: {},
+        filters: {
+            state: ["TAMILNADU"]
+        },
         filterOptions: {
-            districts: [],
+            district: [
+                {
+                    label: 'Chennai',
+                    value: 'Chennai'
+                },
+                {
+                    label: 'Coimbatore',
+                    value: 'Coimbatore'
+                },
+                {
+                    label: 'Cuddalore',
+                    value: 'Cuddalore'
+                },
+                {
+                    label: 'Dharmapuri',
+                    value: 'Dharmapuri'
+                },
+                {
+                    label: 'Dindigul',
+                    value: 'Dindigul'
+                },
+                {
+                    label: 'Erode',
+                    value: 'Erode'
+                },
+                {
+                    label: 'Kallakkurichi',
+                    value: 'Kallakkurichi'
+                },
+                {
+                    label: 'Kanchipuram',
+                    value: 'Kanchipuram'
+                },
+                {
+                    label: 'Kanyakumari',
+                    value: 'Kanyakumari'
+                },
+                {
+                    label: 'Karur',
+                    value: 'Karur'
+                },
+                {
+                    label: 'Krishnagiri',
+                    value: 'Krishnagiri'
+                },
+                {
+                    label: 'Madurai',
+                    value: 'Madurai'
+                },
+                {
+                    label: 'Nagapatinam',
+                    value: 'Nagapatinam'
+                },
+                {
+                    label: 'Namakkal',
+                    value: 'Namakkal'
+                },
+                {
+                    label: 'Niligiris',
+                    value: 'Niligiris'
+                },
+                {
+                    label: 'Perambalur',
+                    value: 'Perambalur'
+                },
+                {
+                    label: 'Pondicherry',
+                    value: 'Pondicherry'
+                },
+                {
+                    label: 'Pudukottai',
+                    value: 'Pudukottai'
+                },
+                {
+                    label: 'Ramanathapuram',
+                    value: 'Ramanathapuram'
+                },
+                {
+                    label: 'Ranipet',
+                    value: 'Ranipet'
+                },
+                {
+                    label: 'Salem',
+                    value: 'Salem'
+                },
+                {
+                    label: 'Sivagangai',
+                    value: 'Sivagangai'
+                },
+                {
+                    label: 'Thanjavur',
+                    value: 'Thanjavur'
+                },
+                {
+                    label: 'Theni',
+                    value: 'Theni'
+                },
+                {
+                    label: 'Thiruvarur',
+                    value: 'Thiruvarur'
+                },
+                {
+                    label: 'Tiruchirapalli',
+                    value: 'Tiruchirapalli'
+                },
+                {
+                    label: 'Tirunelveli',
+                    value: 'Tirunelveli'
+                },
+                {
+                    label: 'Tiruppur',
+                    value: 'Tiruppur'
+                },
+                {
+                    label: 'Tiruvallur',
+                    value: 'Tiruvallur'
+                },
+                {
+                    label: 'Tiruvannamalai',
+                    value: 'Tiruvannamalai'
+                },
+                {
+                    label: 'Tuticorin',
+                    value: 'Tuticorin'
+                },
+                {
+                    label: 'Vellore',
+                    value: 'Vellore'
+                },
+                {
+                    label: 'Villupuram',
+                    value: 'Villupuram'
+                },
+                {
+                    label: 'Virudunagar',
+                    value: 'Virudunagar'
+                }
+            ],
             state: [],
             locationType: [],
             populationBracket: [],

@@ -60,10 +60,6 @@ export default function Table(props) {
                 <thead>
                     <tr>
                         {columns.map((item, i) => {
-                            console.table({
-                                selectedKey,
-                                item
-                            })
                             return <th className={cx({ [s.active]: (selectedKey == item) })} style={(i == 0) ? { width: 200 } : { width: 80 }} role={isColumnSelectable ? "button" : "none"} onClick={() => handleSelect(item)} key={`HEADER_COLUMN_${i}`}>{item}</th>
                         })}
                     </tr>

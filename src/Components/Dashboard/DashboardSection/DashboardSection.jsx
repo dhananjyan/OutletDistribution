@@ -21,7 +21,7 @@ export default function DashboardSection() {
     useEffect(() => {
         dispatch(applyFilter(true))
     }, [])
-    
+
 
     return (
         <div className={s.dashboardSection}>
@@ -61,29 +61,6 @@ export default function DashboardSection() {
                             </div>
                             <div className={s.countListSection}>
                                 <div className={s.counterCard}>
-                                    <div className={s.count}>{formatNumberWithTwoDecimals(ssfa.cityCount)}</div>
-                                    <div className={s.countLabel}>City Count</div>
-                                </div>
-                                <div className={s.counterCard}>
-                                    <div className={s.count}>{formatNumberWithTwoDecimals(ssfa.coveredVillage)}</div>
-                                    <div className={s.countLabel}>Covered Villages</div>
-                                </div>
-                                <div className={s.counterCard}>
-                                    <div className={s.count}>{formatNumberWithTwoDecimals(ssfa.outletCount)}</div>
-                                    <div className={s.countLabel}>Outlet Count</div>
-                                </div>
-                                <div className={s.counterCard}>
-                                    <div className={s.count}>{formatNumberWithTwoDecimals(ssfa.billing)} %</div>
-                                    <div className={s.countLabel}>SSFA Billing %</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={s.cardBody}>
-                            <div className={s.header}>
-                                RSC
-                            </div>
-                            <div className={s.countListSection}>
-                                <div className={s.counterCard}>
                                     <div className={s.count}>{formatNumberWithTwoDecimals(rsc.cityCount)}</div>
                                     <div className={s.countLabel}>City Count</div>
                                 </div>
@@ -98,6 +75,29 @@ export default function DashboardSection() {
                                 <div className={s.counterCard}>
                                     <div className={s.count}>{formatNumberWithTwoDecimals(rsc.billing)} %</div>
                                     <div className={s.countLabel}>RSC Billing %</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={s.cardBody}>
+                            <div className={s.header}>
+                                RSC
+                            </div>
+                            <div className={s.countListSection}>
+                                <div className={s.counterCard}>
+                                    <div className={s.count}>{formatNumberWithTwoDecimals(ssfa.cityCount)}</div>
+                                    <div className={s.countLabel}>City Count</div>
+                                </div>
+                                <div className={s.counterCard}>
+                                    <div className={s.count}>{formatNumberWithTwoDecimals(ssfa.coveredVillage)}</div>
+                                    <div className={s.countLabel}>Covered Villages</div>
+                                </div>
+                                <div className={s.counterCard}>
+                                    <div className={s.count}>{formatNumberWithTwoDecimals(ssfa.outletCount)}</div>
+                                    <div className={s.countLabel}>Outlet Count</div>
+                                </div>
+                                <div className={s.counterCard}>
+                                    <div className={s.count}>{formatNumberWithTwoDecimals(ssfa.billing)} %</div>
+                                    <div className={s.countLabel}>SSFA Billing %</div>
                                 </div>
                             </div>
                         </div>

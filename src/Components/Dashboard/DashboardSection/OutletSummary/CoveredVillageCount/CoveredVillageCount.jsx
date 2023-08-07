@@ -21,7 +21,7 @@ export default function CoveredVillageCount() {
                 <DotLoader show={ tableData?.sub_coveredVillages?.key && !tableData?.sub_coveredVillages?.data?.length}>
                     <div className={cx("text-center", s.tableLabel)}>CK Covered Villages by state and Population</div>
                     <Table isColumnSelectable selectedKey={tableData?.sub_coveredVillages?.key} onColumnSelect={key => handleSelect({ key, table: "coveredVillages" })} data={tableData?.coveredVillages} />
-                    <div>{tableData?.sub_coveredVillages ? <><div className={cx("text-center", s.tableLabel)}>CK Uncovered Villages by state and Population</div>
+                    <div>{tableData?.sub_coveredVillages ? <><div className={cx("text-center", s.tableLabel)}>CK Covered Villages by state and Population</div>
                         <Table data={tableData?.sub_coveredVillages?.data} hasFooter={false} /></> : ""}</div>
                 </DotLoader>
             </div>
