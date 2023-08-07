@@ -4,7 +4,8 @@ export const dashboardSlice = createSlice({
     name: 'dashboard',
     initialState: {
         filters: {
-            state: ["TAMILNADU"]
+            state: ["TAMILNADU"],
+            financialYear: ["2023-24"]
         },
         filterOptions: {
             district: [

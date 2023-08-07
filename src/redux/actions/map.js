@@ -1,6 +1,6 @@
 import { toastr } from "react-redux-toastr";
 import { client } from "../../utils/client";
-import { updateCurrentSelect, updateFilterOptions, updateFilters, updateMapData } from "../reducers/mapSlice";
+import { updateCurrentSelect, updateFilterOptions, updateFilters, updateLoading, updateMapData } from "../reducers/mapSlice";
 
 export function updateFilterValue(data) {
     return async (dispatch, getState) => {
@@ -80,15 +80,17 @@ export function filterSubmit() {
         if (!filters?.village?.[0])
             return toastr.info("Please select village to continue")
 
+        dispatch(updateLoading(true));
         const result = await client.post("/map",
             {
                 "state": filters?.state?.[0] || "",
                 "district": filters?.district?.[0] || "",
-                "village": filters?.village?.[0] || "",                
+                "village": filters?.village?.[0] || "",
                 // "state": "TAMILNADU",
                 // "district": "Madurai",
                 // "village": "Madurai",
             });
+        dispatch(updateLoading(false));
         if (!result?.status)
             return toastr.error('Something went wrong, Please try again later')
 

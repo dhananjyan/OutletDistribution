@@ -74,7 +74,7 @@ export default function DashboardSection() {
                                 </div>
                                 <div className={s.counterCard}>
                                     <div className={s.count}>{formatNumberWithTwoDecimals(rsc.billing)} %</div>
-                                    <div className={s.countLabel}>RSC Billing %</div>
+                                    <div className={s.countLabel}>SSFA Billing %</div>
                                 </div>
                             </div>
                         </div>
@@ -97,7 +97,7 @@ export default function DashboardSection() {
                                 </div>
                                 <div className={s.counterCard}>
                                     <div className={s.count}>{formatNumberWithTwoDecimals(ssfa.billing)} %</div>
-                                    <div className={s.countLabel}>SSFA Billing %</div>
+                                    <div className={s.countLabel}>RSC Billing %</div>
                                 </div>
                             </div>
                         </div>

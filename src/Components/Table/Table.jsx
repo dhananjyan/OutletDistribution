@@ -28,7 +28,7 @@ function formatData({ data, hasFooter }) {
 }
 
 export default function Table(props) {
-    const { data =[
+    const { data = [
         {
             state: "Tamilnadu", count: "126555", children: [
                 {
@@ -42,7 +42,7 @@ export default function Table(props) {
                 { state: "Ariyalur", count: "126555" },
             ]
         },
-        {state: "Tamilnadu", count: "126555"}
+        { state: "Tamilnadu", count: "126555" }
     ], isColumnSelectable, onColumnSelect, hasFooter = true, selectedKey } = props;
     const { tableData = [], footerData = [] } = formatData({ data, hasFooter });
     const { columns, footColumns } = getColumnList({ data, hasFooter });
@@ -76,8 +76,8 @@ export default function Table(props) {
                 </tbody>
                 {hasFooter ? <tfoot>
                     <tr>
-                        {footColumns?.map(item => {
-                            return <td className={cx({ "active": (selectedKey == item) })}>{footerData[item]}</td>
+                        {footColumns?.map((item, i) => {
+                            return <td key={`TABLE_FOOTER_${i}`} className={cx({ "active": (selectedKey == item) })}>{footerData[item]}</td>
                         })}
                     </tr>
                 </tfoot> : ""}

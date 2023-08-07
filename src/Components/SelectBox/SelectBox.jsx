@@ -10,7 +10,7 @@ import downArrow from "../../assets/svg/downArrow.svg";
 import searchIcon from "../../assets/svg/search.svg";
 
 export default function SelectBox(props) {
-    const { options = [], value: selectedList = [], onOpen, onChange, name, isMultiSelect = false, onClose } = props;
+    const { options = [], value: selectedList = [], onOpen, onChange, name, isMultiSelect = false, onClose, zIndex = "10001" } = props;
     const popupRef = useRef();
     const selectRef = useRef();
     const [filteredOptions, setFilteredOptions] = useState(options);
@@ -103,7 +103,7 @@ export default function SelectBox(props) {
 
             <ReactSVG className={s.dropdownArrow} src={downArrow} />
             {
-                isOpen ? <div className={s.popup} ref={popupRef} >
+                isOpen ? <div className={s.popup} style={{ zIndex }} ref={popupRef} >
                     <div className={s.searchInputContainer}>
                         <ReactSVG src={searchIcon} />
                         <input placeholder="Search" onChange={handleInputChange} />

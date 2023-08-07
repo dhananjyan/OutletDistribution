@@ -128,7 +128,7 @@ export function fetchOutletSummary() {
             value: true
         }));
         const filters = getState()?.dashboard?.filters;
-        dispatch(updateMapSectionLoading(true));
+        // dispatch(updateMapSectionLoading(true));
         const result = await client.post("/totalOutlet", {
             "state": filters?.state || [],
             "district": filters?.district || [],
@@ -176,7 +176,6 @@ export function handleColumnSelect({ key, table }) {
 
             const tableData = getState()?.dashboard?.tableData;
             if (tableData?.["sub_" + table]?.key === key) {
-                console.log("Selecting same data")
                 return;
             }
             dispatch(updateOutletSummaryTable({ ...tableData, ["sub_" + table]: { data: [], key } }))

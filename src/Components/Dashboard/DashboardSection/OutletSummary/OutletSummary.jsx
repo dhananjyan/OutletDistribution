@@ -14,7 +14,6 @@ export default function OutletSummary() {
     const currentTab = useSelector(state => state?.dashboard?.outlet?.currentOutletTab);
     const isOutletSummaryTotalOutletLoading = useSelector(state => state?.dashboard?.isOutletSummaryTotalOutletLoading);
 
-
     const tableData = useSelector(state => state?.dashboard?.tableData);
     const handleTabClick = (tab) => {
         dispatch(updateOutletCurrentTab(tab))

@@ -37,15 +37,15 @@ export default function Filters(props) {
         <div className={s.filterContainer}>
             <div className={s.filterItem}>
                 <label>State</label>
-                <SelectBox onClose={() => handleClose()} onOpen={() => handleOpen("state")} options={filterOptions?.state || []} name="state" value={filtersValue?.state} onChange={handleFilterChange} />
+                <SelectBox zIndex="99999" onClose={() => handleClose()} onOpen={() => handleOpen("state")} options={filterOptions?.state || []} name="state" value={filtersValue?.state} onChange={handleFilterChange} />
             </div>
             <div className={s.filterItem}>
                 <label>District</label>
-                <SelectBox onClose={() => handleClose()} onOpen={() => handleOpen("district")} value={filtersValue?.district} options={filterOptions?.district || []} name="district" onChange={handleFilterChange} />
+                <SelectBox zIndex="99999" onClose={() => handleClose()} onOpen={() => handleOpen("district")} value={filtersValue?.district} options={filterOptions?.district || []} name="district" onChange={handleFilterChange} />
             </div>
             <div className={s.filterItem}>
                 <label>Village</label>
-                <SelectBox options={filterOptions?.village || []} name="village" value={filtersValue?.village} onClose={() => handleClose()} onOpen={() => handleOpen("village")} defaultValue={[]} onChange={handleFilterChange} />
+                <SelectBox zIndex="99999" options={filterOptions?.village || []} name="village" value={filtersValue?.village} onClose={() => handleClose()} onOpen={() => handleOpen("village")} defaultValue={[]} onChange={handleFilterChange} />
             </div>
             <div className={cx("align-self-end")}>
                 <Button className={s.filterButton} onClick={handleSubmit}>Submit</Button>
