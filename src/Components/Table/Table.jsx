@@ -28,22 +28,7 @@ function formatData({ data, hasFooter }) {
 }
 
 export default function Table(props) {
-    const { data = [
-        {
-            state: "Tamilnadu", count: "126555", children: [
-                {
-                    state: "Ariyalur", count: "126555", children: [
-                        { state: "pasanur", count: "10200" }
-                    ]
-                },
-                { state: "Ariyalur", count: "126555" },
-                { state: "Ariyalur", count: "126555" },
-                { state: "Ariyalur", count: "126555" },
-                { state: "Ariyalur", count: "126555" },
-            ]
-        },
-        { state: "Tamilnadu", count: "126555" }
-    ], isColumnSelectable, onColumnSelect, hasFooter = true, selectedKey } = props;
+    const { data = [], isColumnSelectable, onColumnSelect, hasFooter = true, selectedKey } = props;
     const { tableData = [], footerData = [] } = formatData({ data, hasFooter });
     const { columns, footColumns } = getColumnList({ data, hasFooter });
 
