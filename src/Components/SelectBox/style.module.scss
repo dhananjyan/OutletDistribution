@@ -1,4 +1,5 @@
 @import "../../assets/scss/variables.scss";
+
 .selectBox {
     display: flex;
     justify-content: space-between;
@@ -12,17 +13,20 @@
     font-style: normal;
     font-weight: 400;
     line-height: 48px;
+
     // .placeholder {
     //     font-size: .9em
     // }
     .dropdownArrow {
         transition: transform 350ms ease-in-out;
     }
+
     &.isOpen {
         .dropdownArrow {
             transform: rotate(180deg);
         }
     }
+
     .popup {
         position: absolute;
         top: 100%;
@@ -35,21 +39,25 @@
         background-color: $color-white;
         max-height: 400px;
         overflow: auto;
+
         &::-webkit-scrollbar-track {
             border-radius: 2px;
             background-color: rgba(242, 153, 74, 0.30);
             border: none;
         }
+
         &::-webkit-scrollbar {
             width: 5px;
             height: 5px;
         }
+
         &::-webkit-scrollbar-thumb {
             width: 5px;
             height: 5px;
             border-radius: 8px;
             background-color: #F2994A;
         }
+
         .searchInputContainer {
             display: flex;
             gap: 8px;
@@ -57,6 +65,9 @@
             background: $color-grey-2;
             border-radius: 4px;
             padding: 3px;
+            position: sticky;
+            top: 0;
+
             input {
                 flex: 1;
                 border-radius: 4px;
@@ -65,11 +76,13 @@
                 outline: none;
             }
         }
+
         .multiSelectField {
             // padding-top: 5px;
             display: flex;
             gap: 8px;
             align-items: center;
+
             .checkbox {
                 width: 20px;
                 height: 20px;
@@ -77,6 +90,7 @@
                 color: white;
                 border: #F2994A
             }
+
             .radioButton {
                 height: 20px;
                 width: 20px;
@@ -84,6 +98,7 @@
                 // background-color: red;
                 // justify-self: center;
                 border: 1px solid blue;
+
                 &.active {
                     border: 5px solid blue;
                 }
