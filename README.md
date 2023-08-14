@@ -41,5 +41,4 @@ Follow these steps to build and deploy your project for production:
    ```sh
    npx serve dist
    ```
-   
-   ```
+
