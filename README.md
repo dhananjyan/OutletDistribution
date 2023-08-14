@@ -25,14 +25,16 @@ Follow these steps to build and deploy your project for production:
    npm install
    ```
 
-1. Install the dependency
+2. Build the project
 
-```npm install```
+```sh
+npm run build
+```
+After running this command, a dist directory will be created in the root folder. This directory contains the optimized and minified files for production.
 
-2. create build
-
-```npm run build```
-
-A dist file is created in root folder.
-
-3. Serve the dist folder
+3. Serve the dist folder:
+You can deploy the contents of the dist folder to your preferred hosting platform. The specific steps for deploying depend on your chosen platform.
+If you want to quickly test the production build locally, you can use a static file server like 
+```sh
+npx serve dist
+```
