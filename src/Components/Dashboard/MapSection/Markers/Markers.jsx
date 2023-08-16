@@ -4,6 +4,7 @@ import { Marker, Popup, useMap } from "react-leaflet";
 import { Icon, } from 'leaflet';
 
 import s from "./style.module.scss";
+import MarkerClusterGroup from 'react-leaflet-cluster'
 
 import distributorMarker from "../../../../assets/distributorMarker.png";
 import outletMarker from "../../../../assets/outletMarker.png";
@@ -49,7 +50,9 @@ export default function Markers(props) {
 
 
     return (
-        <>
+        <MarkerClusterGroup
+            chunkedLoading
+        >
             {markers?.map((marker, i) => {
                 const icon = marker[4] == "Outlet" ? outletIcon : distributorIcon;
                 if (marker?.length)
@@ -65,6 +68,6 @@ export default function Markers(props) {
                         </Popup>
                     </Marker>)
             })}
-        </>
+        </MarkerClusterGroup>
     )
 }
