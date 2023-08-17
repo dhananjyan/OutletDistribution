@@ -35,10 +35,13 @@ export const mapSlice = createSlice({
         updateMapData: (state, action) => {
             state.mapData = action.payload;
         },
+        updateShowMap: (state, action) => {
+            state.isShowMap = action.payload;
+        },
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { updateFilters, updateLoading, updateFilterOptions, updateCountLoading, updateCurrentSelect, updateMapData } = mapSlice.actions;
+export const { updateFilters, updateLoading, updateShowMap, updateFilterOptions, updateCountLoading, updateCurrentSelect, updateMapData } = mapSlice.actions;
 
 export default mapSlice.reducer

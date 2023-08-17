@@ -32,7 +32,7 @@ export default function Dashboard() {
             <Suspense>
                 <Header />
             </Suspense>
-            <div className="container-fluid py-3 flex-grow-1">
+            <div className="container-fluid p-4 flex-grow-1">
                 <div className={cx("d-flex justify-content-end my-3")}>
                     <Suspense>
                         <TabButtons currentTab={currentTab} setCurrentTab={setCurrentTab} />
