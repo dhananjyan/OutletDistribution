@@ -52,6 +52,9 @@ export default function Markers(props) {
     return (
         <MarkerClusterGroup
             chunkedLoading
+            spiderfyOnMaxZoom={false}
+            disableClusteringAtZoom={16}
+            showCoverageOnHover={false}
         >
             {markers?.map((marker, i) => {
                 const icon = marker[4] == "Outlet" ? outletIcon : distributorIcon;
