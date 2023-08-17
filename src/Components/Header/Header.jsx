@@ -44,7 +44,7 @@ export default function Header() {
     return (
         <div>
             <div className={cx(s.header)}>
-                <img height={70} src="/Logo.png" />
+                <img height={70} src="/outletdistribution/Logo.png" />
                 <div className={cx(s.headerText, "d-none d-md-block")}>Outlet distribution - PC Division</div>
                 <div className={cx(s.rightText, "d-none d-md-block")}>
                 <AuthenticatedTemplate>

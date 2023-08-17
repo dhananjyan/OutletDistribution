@@ -1,6 +1,6 @@
 import { toastr } from "react-redux-toastr";
 import { client } from "../../utils/client";
-import { updateCurrentSelect, updateFilterOptions, updateFilters, updateLoading, updateMapData } from "../reducers/mapSlice";
+import { updateCountLoading, updateCurrentSelect, updateFilterOptions, updateFilters, updateLoading, updateMapData, updateShowMap } from "../reducers/mapSlice";
 
 export function updateFilterValue(data) {
     return async (dispatch, getState) => {
@@ -29,6 +29,8 @@ export function updateVillageOptions({ state, district }) {
         }));
         dispatch(updateFilterOptions({ village: [] }));
         if (!state?.length || !district?.length) return;
+
+        dispatch(onUpdateDistrict());
         const result = await client.post("/village", {
             "state": state[0],
             "district": district[0]
@@ -70,6 +72,28 @@ export function updateDistrictOptions(state) {
     }
 }
 
+export function onUpdateDistrict() {
+    return async (dispatch, getState) => {
+        const filters = getState()?.map?.filters;
+        dispatch(updateShowMap(false))
+        dispatch(updateCountLoading(true));
+        const result = await client.post("/map",
+            {
+                "state": filters?.state?.[0] || "",
+                "district": filters?.district?.[0] || "",
+                "village": "",
+            });
+        dispatch(updateCountLoading(false));
+        if (!result?.status)
+            return toastr.error('Something went wrong, Please try again later')
+
+        if (!result?.data?.[0]?.result?.length)
+            return toastr.info("No record found")
+        let { result: ddd, ...restData } = result?.data?.[0];
+        dispatch(updateMapData([restData]))
+    }
+}
+
 export function filterSubmit() {
     return async (dispatch, getState) => {
         const filters = getState()?.map?.filters;
@@ -78,7 +102,9 @@ export function filterSubmit() {
         if (!filters?.district?.[0])
             return toastr.info("Please select District to continue")
         if (!filters?.village?.[0])
-            return toastr.info("Please select village to continue")
+            return toastr.info("Please select village to continue");
+
+        dispatch(updateShowMap(true))
 
         dispatch(updateLoading(true));
         const result = await client.post("/map",

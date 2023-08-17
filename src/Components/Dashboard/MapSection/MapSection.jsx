@@ -12,12 +12,13 @@ export default function MapSection() {
 
     const mapData = useSelector(state => state?.map?.mapData?.[0]);
     const isLoading = useSelector(state => state?.map?.isLoading);
+    const showMap = useSelector(state => state?.map?.isShowMap);
 
     return (
         <div>
             <Filters distributorCount={mapData?.dist_count} outletCount={mapData?.outlet_count} />
             <DotLoader show={isLoading}>
-                <div className={cx(s.mapContainer)}>
+                {showMap ? <div className={cx(s.mapContainer)}>
                     <div className={s.infoBox}>
                         <div className={s.infoItem}>
                             <i style={{ backgroundColor: "#f3a6b2" }} className={s.circle} />
@@ -61,7 +62,7 @@ export default function MapSection() {
                             markers={mapData?.result}
                         /> : ""}
                     </MapContainer>
-                </div>
+                </div> : ""}
             </DotLoader>
         </div>
     )
