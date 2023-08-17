@@ -16,8 +16,6 @@ export default function SelectBox(props) {
     const [filteredOptions, setFilteredOptions] = useState(options);
     const [isOpen, setIsOpen] = useState(false);
     const [filterValue, setFilterValue] = useDebounce(null, 300);
-    const [isUpadted, setIsUpadted] = useState(false);
-    // const [selectedList, setSelectedList] = useState(value)
 
     function handleSelectBoxClick(e) {
         if (popupRef.current && popupRef.current.contains(e.target)) {
@@ -67,8 +65,10 @@ export default function SelectBox(props) {
         onChange({ field: name, value: newValue, item })
         // return newValue;
         // })
-        if (!isMultiSelect)
-            setIsOpen(false)
+        if (!isMultiSelect){
+            setIsOpen(false);
+            setFilteredOptions(options)
+        }
     };
 
     useEffect(() => {

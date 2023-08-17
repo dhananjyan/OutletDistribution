@@ -7,6 +7,7 @@ export const mapSlice = createSlice({
         filterOptions: {},
         isLoading: false,
         currentSelect: null,
+        isCountLoading: false,
         mapData: []
     },
     reducers: {
@@ -25,6 +26,9 @@ export const mapSlice = createSlice({
         updateLoading: (state, action) => {
             state.isLoading = action.payload;
         },
+        updateCountLoading: (state, action) => {
+            state.isCountLoading = action.payload;
+        },
         updateCurrentSelect: (state, action) => {
             state.currentSelect = action?.payload;
         },
@@ -35,6 +39,6 @@ export const mapSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { updateFilters, updateLoading, updateFilterOptions, updateCurrentSelect, updateMapData } = mapSlice.actions;
+export const { updateFilters, updateLoading, updateFilterOptions, updateCountLoading, updateCurrentSelect, updateMapData } = mapSlice.actions;
 
 export default mapSlice.reducer
