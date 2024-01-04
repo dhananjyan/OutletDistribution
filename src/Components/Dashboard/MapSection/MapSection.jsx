@@ -55,7 +55,8 @@ export default function MapSection() {
                     </div>
                     <MapContainer center={mapData?.coordinates} maxZoom={16} zoom={16} scrollWheelZoom={false}>
                         <TileLayer
-                            url={`https://outletdistribution.blob.core.windows.net/outletdistribution/map/${mapData?.state}/{z}/{x}/{y}.png?sp=racwdl&st=2023-08-01T09:55:52Z&se=2023-10-31T17:55:52Z&sv=2022-11-02&sr=c&sig=3hR664FSk8dIsvVSYUE5pGiFVdGr6yEtWSZfIZ1153w%3D`}
+                        // https://outletdistribution.blob.core.windows.net/outletdistribution/map/TAMILNADU/16/47356/30410.png?sp=racwdli&st=2024-01-04T08:03:01Z&se=2024-01-11T16:03:01Z&sv=2022-11-02&sr=c&sig=%2F%2BYwSap5VnPE96aCmACUgYPsuc7vA8GTtYTyej3QcL8%3D
+                            url={`https://outletdistribution.blob.core.windows.net/outletdistribution/map/${mapData?.state}/{z}/{x}/{y}.png?sp=racwdli&st=2024-01-04T08:03:01Z&se=2024-01-11T16:03:01Z&sv=2022-11-02&sr=c&sig=%2F%2BYwSap5VnPE96aCmACUgYPsuc7vA8GTtYTyej3QcL8%3D`}
                         />
                         {mapData?.result?.length ? <Markers
                             coordinates={mapData?.coordinates}
